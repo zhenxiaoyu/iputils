@@ -126,6 +126,7 @@ TAG:=$(shell date --date=$(TODAY) +s%Y%m%d)
 
 
 # -------------------------------------
+#容错处理
 .PHONY: all ninfod clean distclean man html check-kernel modules snapshot
 
 all: $(TARGETS)
@@ -149,7 +150,8 @@ $(TARGETS): %: %.o
 # gcc -O3 -fno-strict-aliasing -Wstrict-prototypes -Wall -g -D_GNU_SOURCE    -c ping.c -DCAPABILITIES   -o ping.o
 #gcc   ping.o ping_common.o -lcap    -o ping
 
-# $(patsubst %.o,%,$@)
+# $(patsubst %.o,%,$@) 的意思是把指定filename.o文件变为filename
+
 
 
 # -------------------------------------
